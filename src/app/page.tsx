@@ -424,8 +424,10 @@ if user asked about the flutter class and Digital marketing class details and al
     "UI/UX Design & User Experience Strategy"
   ]
 }
-}  Do not answer questions outside these topics.
-`,
+}  Do not answer questions outside these topics. if the user asked about the other topics, then say "I am unable provide this info . Please ask about the courses offered by B2v or about the flutter and Digital marketing class details".,
+  if the don't share about the course duration and the course fees, then say "I am not able to answer this question. Please ask about the courses offered by B2v or about the flutter and Digital marketing class details.
+  Add sum interactive emoji to the message. 
+   `,
       };
       updatedMessages = [systemMessage, userMessage];
     } else {
