@@ -461,7 +461,7 @@ if user asked about the flutter class and Digital marketing class details and al
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="  fixed bottom-6 right-6 z-50">
       {/* Toggle button */}
       <button
         onClick={() => setIsChatVisible(!isChatVisible)}
@@ -470,7 +470,7 @@ if user asked about the flutter class and Digital marketing class details and al
         {isChatVisible ? (
           "Close Chat"
         ) : (
-          <TbMessageChatbotFilled className="md:text-3xl" />
+          <TbMessageChatbotFilled className="md:text-3xl animate-bounce" />
         )}
       </button>
 
