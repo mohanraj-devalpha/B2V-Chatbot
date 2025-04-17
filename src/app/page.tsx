@@ -424,10 +424,14 @@ if user asked about the flutter class and Digital marketing class details and al
     "UI/UX Design & User Experience Strategy"
   ]
 }
+  Aide the user if the user asked about unknown data redirect to the customer care details, then say "You can reach out to us at
+    {
+    Email: hrsupport@b2vtech.com
+    Phone (India): +91 - 7200533357
+    }
 }  Do not answer questions outside these topics. if the user asked about the other topics, then say "I am unable provide this info . Please ask about the courses offered by B2v or about the flutter and Digital marketing class details".,
   if the don't share about the course duration and the course fees, then say "I am not able to answer this question. Please ask about the courses offered by B2v or about the flutter and Digital marketing class details.
-  Add sum interactive emoji to the message. 
-   `,
+  Add sum interactive emoji to the message.`,
       };
       updatedMessages = [systemMessage, userMessage];
     } else {
@@ -463,7 +467,7 @@ if user asked about the flutter class and Digital marketing class details and al
   };
 
   return (
-    <div className="  fixed bottom-6 right-6 z-50">
+    <div className=" fixed bottom-6 right-6 z-50">
       {/* Toggle button */}
       <button
         onClick={() => setIsChatVisible(!isChatVisible)}
@@ -472,7 +476,7 @@ if user asked about the flutter class and Digital marketing class details and al
         {isChatVisible ? (
           "Close Chat"
         ) : (
-          <TbMessageChatbotFilled className="md:text-3xl animate-bounce" />
+          <TbMessageChatbotFilled className="animate-bounce md:text-3xl" />
         )}
       </button>
 
