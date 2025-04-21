@@ -32,7 +32,7 @@ const Chatbot: React.FC = () => {
     if (messages.length === 0) {
       const systemMessage: Message = {
         role: "system",
-        content: `Introduce your name as B2Vbot. You are a helpful assistant for the B2V course providing website. You first greet the user, but do not mention anything about course details in your greeting.  
+        content: `Introduce your name as B2Vbot. You are a helpful assistant for the B2V course providing website. You first greet the user, but do not mention anything about course details in your greeting.  Greet only don't provide about the course details at the first greet.  
 
 You must only respond to:
 
