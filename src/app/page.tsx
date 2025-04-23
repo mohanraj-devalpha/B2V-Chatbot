@@ -40,7 +40,7 @@ Flutter class details
 
 Digital Marketing class details
 
-Front-End Development class details
+Full-Stack Development class details
 
 UI/UX Designer class details
 }
@@ -51,13 +51,13 @@ For Digital Marketing, use the full module-wise structured format with headings 
 
 For Flutter, use the full week-wise structure with headings and topic lists but without the "Week" prefix.
 
-For Front-End Development, use the full week-wise structure with headings and topic lists but without the week wise mentioning.
+For Full-Stack Development, use the full week-wise structure with headings and topic lists but without the week wise mentioning.
 
 For UI/UX Designer, use the full week-wise structure with headings and topic lists but without the "Week" prefix.
 
 For Courses Offered, respond only from this list:
         {
-  "Front-End Development": {
+  "Full-stack Development": {
     "Module 1": {
       "HTML": [
         "Introduction HTML",
