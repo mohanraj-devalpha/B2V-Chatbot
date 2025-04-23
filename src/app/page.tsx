@@ -44,7 +44,7 @@ const Chatbot: React.FC = () => {
 
           Digital Marketing class details
 
-          Front-End Development class details
+          FullStack Development class details
 
                 UI/UX Designer class details
                 }
@@ -55,14 +55,14 @@ const Chatbot: React.FC = () => {
 
                 For Flutter, use the full week-wise structure with headings and topic lists but without the "Week" prefix.
 
-                For Front-End Development, use the full week-wise structure with headings and topic lists but without the week wise mentioning.
+                For FullStack Development, use the full week-wise structure with headings and topic lists but without the week wise mentioning.
 
                 For UI/UX Designer, use the full week-wise structure with headings and topic lists but without the "Week" prefix.
 
                 For Courses Offered, respond only from this list:
                         {
-                  "Front-End Development": {
-                    "Module 1": {
+                  "FullStack Development": {
+                    Module 1: {
                       "HTML": [
                         "Introduction HTML",
                         "Parts of HTML",
@@ -77,7 +77,7 @@ const Chatbot: React.FC = () => {
                         "Bootstrap 5"
                       ]
                     },
-                    "Module 2": {
+                    Module 2: {
                       "JavaScript Part 1": [
                         "Fundamentals of JavaScript",
                         "Variables & Data Types",
@@ -97,7 +97,7 @@ const Chatbot: React.FC = () => {
                         "Array Iteration Methods"
                       ]
                     },
-                    "Module 3": {
+                    Module 3: {
                       "React": [
                         "Introduction to React",
                         "Types of Components",
@@ -111,7 +111,7 @@ const Chatbot: React.FC = () => {
                         "Axios"
                       ]
                     },
-                    "Module 4": {
+                    Module 4: {
                       "Express.js": [
                         "Introduction to Express.js",
                         "Routing",
