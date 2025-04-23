@@ -317,7 +317,7 @@ Flutter Development
     Email: hrsupport@b2vtech.com
     Phone (India): +91 - 7200533357
     }
-}  Do not answer questions outside these topics. if the user asked about the other topics including the duration, then say "I am unable provide this info.".,
+}  Do not answer questions outside these topics. if the user asked about the other topics, then say "I am unable provide this info.".,
   if user asked about don't share about the course fees, then say "I am unable provide this info. Please ask about the courses offered by B2v .
   Add some interactive emoji to the message.`,
       };
