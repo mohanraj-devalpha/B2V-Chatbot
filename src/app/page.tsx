@@ -35,403 +35,282 @@ const Chatbot: React.FC = () => {
         content: `Introduce your name as B2Vbot. You are a helpful assistant for the B2V course providing website. You first greet the user, but do not mention anything about course details in your greeting.  Greet only don't provide about the course details at the first greet.  
 
 You must only respond to:
-
+{
 Flutter class details
 
 Digital Marketing class details
 
-Courses offered
+Front-End Development class details
+
+UI/UX Designer class details
+}
 
 When the user asks about course content, always respond using clearly structured formats like numbered or bullet lists. Avoid paragraph explanations.
 
-For Digital Marketing, use the full module-wise structured format with headings and topic lists.
+For Digital Marketing, use the full module-wise structured format with headings and topic lists but without the "week" prefix
 
-For Flutter, use the full week-wise structure with headings and topic lists.
+For Flutter, use the full week-wise structure with headings and topic lists but without the "Week" prefix.
+
+For Front-End Development, use the full week-wise structure with headings and topic lists but without the week wise mentioning.
+
+For UI/UX Designer, use the full week-wise structure with headings and topic lists but without the "Week" prefix.
 
 For Courses Offered, respond only from this list:
         {
-  "Digital Marketing Syllabus": {
-    "Module 1": "Introduction",
+  "Front-End Development": {
+    "Module 1": {
+      "HTML": [
+        "Introduction HTML",
+        "Parts of HTML",
+        "Tags",
+        "Form Tags",
+        "Introduction to Selectors"
+      ],
+      "CSS and Bootstrap 5": [
+        "CSS Introduction",
+        "CSS Types",
+        "CSS Properties and Values",
+        "Bootstrap 5"
+      ]
+    },
     "Module 2": {
-      "title": "Email Marketing",
-      "topics": [
-        "Introduction to Marketing",
-        "Mailchimp",
-        "Create audience",
-        "Creation of campaign",
-        "Form creation",
-        "Creation of templates",
-        "Marketing analytics and report"
+      "JavaScript Part 1": [
+        "Fundamentals of JavaScript",
+        "Variables & Data Types",
+        "JS Primitive and Reference Types",
+        "Operators",
+        "Query Selectors",
+        "Conditional Statements",
+        "Looping Statements"
+      ],
+      "JavaScript Part 2": [
+        "Strings",
+        "Arrays",
+        "Objects",
+        "Functions",
+        "Scopes",
+        "Looping through Arrays and Objects",
+        "Array Iteration Methods"
       ]
     },
     "Module 3": {
-      "title": "Affiliate Marketing",
-      "topics": [
-        "Finding affiliate marketing Websites",
-        "Click Bank",
-        "Amazon",
-        "Flipkart",
-        "How to promote affiliate products"
+      "React": [
+        "Introduction to React",
+        "Types of Components",
+        "JSX",
+        "React Router",
+        "Navigation",
+        "Props Handling",
+        "Array Functions",
+        "Callback Functions",
+        "React Hooks",
+        "Axios"
       ]
     },
     "Module 4": {
-      "title": "Google Analytics",
-      "topics": [
-        "Customization",
-        "Real Time Data",
-        "Audience",
-        "Acquisition",
-        "Bounce",
-        "Impression",
-        "Conversions",
-        "Events",
-        "Landing page",
-        "Website monitoring tools"
-      ]
-    },
-    "Module 5": {
-      "title": "Mobile Marketing",
-      "topics": [
-        "Mobile apps",
-        "Ways to do Mobile marketing",
-        "Mobile campaigns",
-        "Mobile ads",
-        "Introduction to Ad campaigns & groups",
-        "Mobile website design and development",
-        "Mobile apps and app store optimization",
-        "SMS and MMS marketing",
-        "Mobile advertising"
-      ]
-    },
-    "Module 6": {
-      "title": "Webmaster Tools",
-      "topics": [
-        "Adding site in Google dashboard",
-        "Setting Geo - target location",
-        "Search queries analysis",
-        "Filtering search queries",
-        "External links report",
-        "Crawl stats and errors",
-        "Sitemaps",
-        "Robots.txt and links removal",
-        "HTML suggestion"
-      ]
-    },
-    "Module 7": {
-      "title": "Search Engine Marketing",
-      "topics": [
-        "Introduction to Pay per click",
-        "Google Adwords",
-        "Keyword Planner",
-        "Search Network Campaign",
-        "Daily budget and ad scheduler",
-        "Ad extensions & customization",
-        "Video Campaign",
-        "Remarketing"
-      ]
-    },
-    "Module 8": {
-      "title": "Social Media Marketing",
-      "topics": [
-        "Introduction to Social Media",
-        "Creating Facebook page for business",
-        "Increasing fans and doing Marketing",
-        "Facebook analytics",
-        "Facebook ads and its types in detail",
-        "Creating advertising campaigns",
-        "Payment modes",
-        "Introduction to Twitter",
-        "Creating strong Profiles on Twitter",
-        "Followers, Retweets, Clicks",
-        "Conversions, Hashtags",
-        "LinkedIn optimization",
-        "What is LinkedIn?",
-        "Individual profile vs Company profile",
-        "Marketing on LinkedIn groups",
-        "Google + tools and techniques",
-        "Google + groups",
-        "Google + for business"
-      ]
-    },
-    "Module 9": {
-      "title": "Local Business & Google Mapping",
-      "topics": [
-        "Creating local listing in Search Engine",
-        "Google places setup (including images, Videos, map etc)",
-        "Search Engine Visibility Reports",
-        "Verification of listing",
-        "Google Reviews"
-      ]
-    },
-    "Module 10": {
-      "title": "Content Marketing",
-      "topics": [
-        "What is Content Marketing?",
-        "Types of Content Marketing",
-        "Content Marketing Goals",
-        "Using Different Forms of Content",
-        "Creating Content Marketing Strategies",
-        "Content Marketing for Social Media",
-        "Important Metrics to Measure in Content Marketing",
-        "Content Marketing with Video Content",
-        "Storytelling",
-        "Quora, Infographics, Niche Blogging",
-        "Forum Marketing",
-        "Memes, Carousels, and Podcasts"
-      ]
-    },
-    "Module 11": {
-      "title": "Google Ads Words",
-      "topics": [
-        "Introduction to Google Ads",
-        "Working of Google Ads",
-        "Types of Google Ads",
-        "Running and Optimizing Search Ads",
-        "Running and Optimizing Display Ads",
-        "Remarketing With Google Ads",
-        "Running App Install Ads",
-        "Lead Generating Ads",
-        "Video Ads",
-        "Shopping Ads",
-        "Call Only Ads",
-        "Proper Audience Targeting",
-        "In-depth Optimization of Ad Groups",
-        "Conversion Ads"
-      ]
-    },
-    "Module 12": {
-      "title": "Google Adsense",
-      "topics": [
-        "How to create adsense account",
-        "Creating of Ad units",
-        "Placing of ads",
-        "Ad colours",
-        "Optimization of Ad units"
-      ]
-    },
-    "Module 13": {
-      "title": "Social Media Optimization",
-      "topics": [
-        "Facebook",
-        "Google+",
-        "Twitter",
-        "LinkedIn",
-        "Tumbler",
-        "Pinterest",
-        "Reditt"
-      ]
-    },
-    "Module 14": {
-      "title": "On Page Optimization",
-      "topics": [
-        "Domain selection",
-        "Hosting selection",
-        "Meta data optimization",
-        "URL optimization",
-        "301 redirection",
-        "404 error pages",
-        "H1, H2, H3 tags optimization",
-        "Image optimization",
-        "Landing page optimization",
-        "Creating XML site map",
-        "Robot.txt"
-      ]
-    },
-    "Module 15": {
-      "title": "Off Page Optimization",
-      "topics": [
-        "Link building tips and techniques",
-        "Difference between white hat & black hat SEO",
-        "Alexa Rank, Domain",
-        "Link acquisition techniques",
-        "Directory submission",
-        "Social bookmarking submission",
-        "Search engine submission",
-        "Web 2.0 submission",
-        "Article submission",
-        "Image submission",
-        "Video submission",
-        "Forum submission",
-        "PPt submission",
-        "PDF submission",
-        "Classified submission",
-        "Citations",
-        "Profile link creations",
-        "Infographic submission"
+      "Express.js": [
+        "Introduction to Express.js",
+        "Routing",
+        "Request Parameters",
+        "Error Handling, Asynchronous Operations"
+      ],
+      "Node.js": [
+        "RESTful APIs",
+        "Modules",
+        "CRUD Operations"
+      ],
+      "MongoDB": [
+        "NoSQL",
+        "Collections",
+        "Documents",
+        "CRUD Operations"
       ]
     }
-  }
-}
-        
-        {
-  "Flutter Lesson": {
-    "Week 1": {
-      "title": "Dart Programming",
-      "topics": [
-        "How to install Dart & Vs code",
+  },
+  "Flutter": {
+    "Module 1": {
+      "Dart Introduction & Basics": [
+        "How to install Dart",
         "Basic Dart program",
         "Data types in Dart",
-        "Operators in Dart",
-        "Properties of String",
-        "questions for practice"
-      ]
-    },
-    "Week 2": {
-      "title": "Conditions in Dart",
-      "topics": [
-        "if condition",
-        "if- else condition",
-        "if- else - if condition",
+        "Operatore in Dart",
+        "String methods",
+        "Conditions in Dart (if, else if)",
+        "Loops in Dart (For loop, For each, while, do while)",
         "Switch case",
-        "questions for practice"
-      ]
-    },
-    "Week 3": {
-      "title": "Loops in Dart",
-      "topics": [
-        "For loop",
-        "For each loop",
-        "While loop",
-        "Do while loop",
-        "Break and Continue",
-        "questions for practice"
-      ]
-    },
-    "Week 4": {
-      "title": "Collections in Dart",
-      "topics": [
+        "Break and continue",
+        "Ternary operator",
+        "Exception Handling",
         "List in Dart",
-        "Map in Dart",
+        "Map in dart",
         "Set in Dart",
-        "Properties of List",
-        "Properties of Map",
-        "Where in Dart",
-        "questions for practice"
+        "Types of Functions: No parameter and No return type, Parameter and No return type"
       ]
     },
-    "Week 5": {
-      "title": "Functions in Dart",
-      "topics": [
-        "Function with no parameter and no return Type",
-        "Function with parameter and no return Type",
-        "Null Safety in Dart",
-        "questions for practice"
+    "Module 2": {
+      "Functions in Dart": [
+        "Function with parameter and return type",
+        "No Parameter and return type",
+        "Parameter and return type",
+        "Use of positional parameter",
+        "Use of required parameter",
+        "Use of optional parameter",
+        "Arrow function",
+        "Object Oriented Programming",
+        "Class and object in dart",
+        "Constructor and constructor types in dart"
       ]
     },
-    "Week 6": {
-      "title": "Functions in Dart (Continued)",
-      "topics": [
-        "Function with no parameter and return Type",
-        "Function with parameter and return Type",
-        "Future in Dart",
-        "Stream in Dart",
-        "questions for practice"
+    "Module 3": {
+      "OOP & Flutter Introduction": [
+        "Inheritance and types in dart",
+        "Abstract class in dart",
+        "Method overriding in dart",
+        "Static in dart",
+        "Enum in dart",
+        "How to install Flutter",
+        "Stateful and stateless widgets",
+        "Widgets in flutter (Text, Container, Row & Column, Stack)",
+        "List view.builder and gridview.builder"
       ]
     },
-    "Week 7": {
-      "title": "Object Oriented Programming",
-      "topics": [
-        "Class in Dart",
-        "Objects in Dart",
-        "Constructor in Dart",
-        "Types of Constructor in Dart",
-        "questions for practice"
-      ]
-    },
-    "Week 8": {
-      "title": "Object Oriented Programming (Continued)",
-      "topics": [
-        "Inheritance in Dart",
-        "Types of inheritance",
-        "Static in Dart",
-        "Abstract class in Dart",
-        "Method Overriding",
-        "Enum in Dart",
-        "questions for practice"
-      ]
-    },
-    "Week 9": {
-      "title": "Flutter",
-      "topics": [
-        "How to install flutter & Android Studio",
-        "Basic Flutter program",
-        "widgets in Flutter",
-        "Stateless Widget",
-        "Statefull Widget",
-        "questions for practice"
-      ]
-    },
-    "Week 10": {
-      "title": "Flutter Widgets",
-      "topics": [
-        "Row and Column",
-        "Text",
-        "Container",
-        "Mediaquery",
-        "Stack",
-        "Ui Practice"
-      ]
-    },
-    "Week 11": {
-      "title": "Useful Widgets in Flutter",
-      "topics": [
-        "Listview.builder",
-        "Gridview.builder",
-        "Bottom navigation bar",
-        "Alert dialog",
-        "Snack bar",
-        "Types of buttons",
-        "Ui Practice"
-      ]
-    },
-    "Week 12": {
-      "title": "Assets in Flutter",
-      "topics": [
+    "Module 4": {
+      "Flutter Widgets and Topics": [
         "Assets in flutter",
         "Pubspec.yaml file and pub.dev",
-        "How to use packages",
-        "Date and time picker",
-        "Form validation",
-        "Navigations in flutter"
-      ]
-    },
-    "Week 13": {
-      "title": "State Management & Local Storage",
-      "topics": [
-        "Shared Preference",
-        "Set state",
-        "Provider"
-      ]
-    },
-    "Week 14": {
-      "title": "Working with API in Flutter",
-      "topics": [
-        "Introduction to Api",
-        "Fetch data from Rest Api",
-        "Put data from Rest Api",
-        "delete data from Rest Api"
-      ]
-    },
-    "Week 15": {
-      "title": "Project Week",
-      "topics": [
-        "Build Simple Apps for practice"
+        "Flutter buttons, text fields and navigations",
+        "List view.builder and gridview.builder",
+        "Bottom Navigation bar",
+        "Alert Dialog",
+        "Table",
+        "Snack bar and Drawer"
       ]
     }
+  },
+  "UI/UX Designer": {
+    "Module 1": {
+      "Fundamentals of UI/UX Design": [
+        "Difference between UI and UX",
+        "Overview of the design process (Empathize, Define, Ideate, Prototype, Test)",
+        "Basic design principles (contrast, alignment, repetition, proximity)"
+      ],
+      "Understanding Users": [
+        "User research techniques: Surveys, interviews, observation",
+        "Creating user personas and empathy maps"
+      ]
+    },
+    "Module 2": {
+      "Tools and Wireframing": [
+        "Overview of industry-standard tools (Figma, Adobe XD, Sketch)",
+        "Hands-on: Figma for beginners (creating frames, components, basic prototypes)",
+        "What are wireframes?",
+        "Low-fidelity vs. high-fidelity prototypes",
+        "Best practices for wireframing"
+      ]
+    },
+    "Module 3": {
+      "Visual Design and Accessibility": [
+        "Typography: Fonts, hierarchy, readability",
+        "Color theory and creating a color palette",
+        "Spacing, grid systems, layout basics",
+        "WCAG guidelines overview",
+        "Designing for diverse users (contrast, alt texts, keyboard navigation)"
+      ]
+    },
+    "Module 4": {
+      "Wireframe Grid System": [
+        "Gathering feedback and making improvements",
+        "How to document the design process",
+        "A basic portfolio showcasing your work"
+      ]
+    }
+  },
+  "Digital Marketing": {
+    "Module 1": "Introduction to Digital Marketing",
+    "Module 2": [
+      "Email Marketing",
+      "Mailchimp",
+      "Create audience",
+      "Creation of campaign",
+      "Form creation",
+      "Creation of templates",
+      "Marketing analytics and report"
+    ],
+    "Module 3": [
+      "Affiliate Marketing",
+      "Finding affiliate marketing Websites",
+      "Click Bank, Amazon, Flipkart",
+      "How to promote affiliate products",
+      "Customization, Real Time Data, Audience, Acquisition, Bounce, Impression, Conversions, Events, Landing page",
+      "Website monitoring tools"
+    ],
+    "Module 4": "Google Analytics",
+    "Module 5": [
+      "Mobile Marketing",
+      "Mobile apps, campaigns, ads",
+      "Ad campaigns & groups",
+      "App store optimization",
+      "SMS and MMS marketing",
+      "Geo-targeting",
+      "Search queries analysis",
+      "Crawl stats, Sitemaps, Robots.txt"
+    ],
+    "Module 6": [
+      "Webmaster Tools",
+      "Pay per click",
+      "Google Adwords",
+      "Keyword Planner",
+      "Campaign and ad scheduler",
+      "Video Campaign, Remarketing"
+    ],
+    "Module 7": "Search Engine Marketing",
+    "Module 8": [
+      "Social Media Marketing",
+      "Facebook page creation, ads, analytics",
+      "Twitter, LinkedIn, Google+ marketing",
+      "Creating local business listing"
+    ],
+    "Module 9": "Local Business & Google Mapping",
+    "Module 10": [
+      "Content Marketing",
+      "Types & Goals of Content Marketing",
+      "Content forms, strategy, video, storytelling",
+      "Quora, Infographics, Podcasts, Memes"
+    ],
+    "Module 11": [
+      "Google Ads",
+      "Search, Display, Video, Lead, Shopping, Call-only Ads",
+      "Audience Targeting and Optimization"
+    ],
+    "Module 12": [
+      "Google Adsense",
+      "Creating adsense account and ad units",
+      "Ad colors and optimization"
+    ],
+    "Module 13": "Social Media Optimization (SMO)",
+    "Module 14": [
+      "On Page Optimization",
+      "Off Page Optimization",
+      "SEO Techniques and Tools"
+    ]
   }
 }
 
+
  {{
   "courses_offered": [
-    "Mobile App Development",
-    "Web Development & E-Commerce Solutions",
-    "Cloud Computing",
-    "DevOps & Security",
-    "Functional Testing & Test Automation",
-    "Agile Methodologies & Project Management",
+    "Flutter Development",
+    "Front-End Development",
     "Digital Marketing & SEO Optimization",
     "UI/UX Design & User Experience Strategy"
-  ]
+  ],
+{
+courses details availables are 
+Front-End Development
+UI/UX
+Digital Marketing
+Flutter Development
+}
 }
   Aide the user if the user asked about unknown data redirect to the customer care details, then say "You can reach out to us at
     {
