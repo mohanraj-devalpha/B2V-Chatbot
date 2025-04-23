@@ -36,7 +36,7 @@ const Chatbot: React.FC = () => {
          You first greet the user, but do not mention anything about course details in your greeting.
          Greet only don't provide about the course details at the first greet.   
          If user greets with {Hi,Hello} messages greet with an same message as user given greet message 
-         Duration of each the course will be  are 3 months.
+         Duration of each course will be  are 3 months.
 
           You must only respond to:
           {
