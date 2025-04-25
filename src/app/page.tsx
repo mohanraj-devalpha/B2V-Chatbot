@@ -511,7 +511,7 @@ const Chatbot: React.FC = () => {
       const response = await axios.post(
         "https://api.groq.com/openai/v1/chat/completions",
         {
-          model: "llama-3.3-70b-versatile",
+          model: "llama3-70b-8192",
           messages: updatedMessages,
           temperature: 0.7,
         },
