@@ -43,6 +43,11 @@ Digital Marketing class details
 Full-Stack Development class details
 
 UI/UX Designer class details
+
+AWS Cloud Computing  class details
+
+devOps and Security class details
+
 }
 
 When the user asks about course content, always respond using clearly structured formats like numbered or bullet lists. Avoid paragraph explanations.
@@ -55,7 +60,11 @@ For Full-Stack Development, use the full week-wise structure with headings and t
 
 For UI/UX Designer, use the full week-wise structure with headings and topic lists but without the "Week" prefix.
 
-For Courses Offered, respond only from this list:
+For AWS Cloud Computing , use the full week-wise structure with headings and topic lists but without the "Week" prefix.
+
+For DevOps and Security, use the full week-wise structure with headings and topic lists but without the "Week" prefix.
+
+For Courses Offered, respond only from this list as ordered list:
         {
   "Full-stack Development": {
     "Module 1": {
@@ -127,6 +136,181 @@ For Courses Offered, respond only from this list:
       ]
     }
   },
+
+  {
+  "AWS Cloud Computing ": {
+    "Module 1: Getting Started with Cloud Computing and AWS": {
+      "Introduction to Cloud Computing": [
+        "Definition and importance of cloud computing",
+        "Types of cloud services (IaaS, PaaS, SaaS)",
+        "Advantages of cloud computing",
+        "Overview of leading cloud providers"
+      ],
+      "Introduction to AWS (Amazon Web Services)": [
+        "What is AWS?",
+        "Key features and benefits of AWS",
+        "Overview of AWS global infrastructure",
+        "AWS Management Console walkthrough"
+      ],
+      "Introduction to EC2 (Elastic Compute Cloud)": [
+        "What is EC2?",
+        "EC2 features and use cases",
+        "Types of EC2 instances",
+        "Introduction to EC2 pricing models (On-Demand, Reserved, Spot Instances)"
+      ]
+    },
+    "Module 2: Core AWS Services with Hands-On Experience": {
+      "Hands-On Labs for EC2": [
+        "Launching your first EC2 instance",
+        "Connecting to EC2 instances via SSH",
+        "Configuring security groups",
+        "Terminating an EC2 instance"
+      ],
+      "Introduction to S3 (Simple Storage Service)": [
+        "What is S3?",
+        "Use cases for S3 storage",
+        "Understanding S3 buckets and objects",
+        "Storage classes and lifecycle policies"
+      ],
+      "About IAM (Identity and Access Management) User": [
+        "What is IAM?",
+        "Creating IAM users and groups",
+        "Configuring permissions and policies",
+        "Best practices for IAM security"
+      ]
+    },
+    "Module 3: Advanced AWS Services and Hands-On Training": {
+      "Load Balancing": [
+        "What is load balancing?",
+        "AWS Elastic Load Balancing (ELB) overview",
+        "Types of load balancers (Application, Network, and Classic)",
+        "Setting up and configuring ELB"
+      ],
+      "EBS (Elastic Block Storage)": [
+        "What is EBS?",
+        "EBS volume types (General Purpose, Provisioned IOPS, etc.)",
+        "Creating and attaching EBS volumes to instances",
+        "Backup and restore with snapshots"
+      ],
+      "Route 53": [
+        "What is Route 53?",
+        "DNS management with Route 53",
+        "Hosting and configuring a domain name",
+        "Routing policies (Simple, Weighted, Latency-Based)"
+      ],
+      "Hands-On Labs": [
+        "Configuring ELB with EC2 instances",
+        "Creating and managing EBS volumes",
+        "Setting up a custom domain with Route 53"
+      ]
+    },
+    "Module 4: Exploring Advanced Features and Services": {
+      "Amplify": [
+        "Introduction to AWS Amplify",
+        "Building frontend applications with Amplify",
+        "Hosting and deployment on AWS Amplify",
+        "Amplify use cases for mobile and web apps"
+      ],
+      "DynamoDB": [
+        "Overview of DynamoDB",
+        "Key features: NoSQL database service",
+        "Creating and managing DynamoDB tables",
+        "Best practices for DynamoDB performance"
+      ],
+      "VPC (Virtual Private Cloud)": [
+        "What is a VPC?",
+        "Components of a VPC: Subnets, Gateways, and Routing Tables",
+        "Setting up a basic VPC",
+        "Introduction to security groups and network ACLs"
+      ],
+      "EBS (Elastic Block Storage) - Basic": [
+        "Key features and use cases",
+        "Comparison with other storage options",
+        "Troubleshooting and maintenance"
+      ]
+    }
+  },
+  "DevOps and Security": {
+    "Module 1: Foundations of DevOps": {
+      "Introduction to DevOps": [
+        "What is DevOps?",
+        "DevOps principles, culture, and practices.",
+        "Benefits and challenges of adopting DevOps."
+      ],
+      "Version Control Systems (Git)": [
+        "Basics of Git: repositories, commits, branches.",
+        "Git workflows: branching strategies, merging, resolving conflicts.",
+        "Using GitHub/GitLab for collaboration."
+      ],
+      "Understanding Agile Methodology": [
+        "Agile vs. Waterfall development.",
+        "Scrum overview.",
+        "Role of DevOps in Agile environments."
+      ],
+      "Basic Command-Line Tools": [
+        "Linux/Unix basics: file management, users, permissions.",
+        "Essential commands for developers and system administrators."
+      ]
+    },
+    "Module 2: Automation and Infrastructure as Code (IaC)": {
+      "Introduction to CI/CD": [
+        "What is CI/CD?",
+        "Benefits of automation in software delivery.",
+        "Overview of tools: Jenkins, Git, Github"
+      ],
+      "Building CI/CD Pipelines": [
+        "Setting up a simple CI pipeline.",
+        "Automated testing and linting with pipelines.",
+        "Deployment basics in a CI/CD pipeline."
+      ],
+      "Introduction to Infrastructure as Code (IaC)": [
+        "Concepts and benefits of IaC.",
+        "Introduction to Terraform and Ansible.",
+        "Writing and applying basic Terraform configurations."
+      ]
+    },
+    "Module 3: Containerization and Orchestration": {
+      "Introduction to Docker": [
+        "What is Docker?",
+        "Creating and running containers.",
+        "Building Docker images with Dockerfiles."
+      ],
+      "Docker in DevOps Pipelines": [
+        "Using Docker for development and testing.",
+        "Sharing containers across teams.",
+        "Managing Docker volumes and networks."
+      ],
+      "Introduction to Kubernetes": [
+        "Kubernetes architecture: Pods, Nodes, Clusters.",
+        "Deploying applications on Kubernetes.",
+        "Managing Kubernetes resources with kubectl."
+      ],
+      "Container Orchestration Basics": [
+        "Comparing Docker Swarm and Kubernetes.",
+        "Scaling and managing containers.",
+        "Load balancing and auto-scaling in Kubernetes."
+      ]
+    },
+    "Module 4: Networking, Security, and Collaboration Tools": {
+      "Networking Basics for DevOps": [
+        "Understanding IP addresses, subnets, and DNS.",
+        "Basics of HTTP/HTTPS and load balancing.",
+        "Firewalls and security groups."
+      ],
+      "DevOps Security Fundamentals": [
+        "Importance of security in DevOps.",
+        "Introduction to secure CI/CD pipelines.",
+        "Managing access and secrets securely."
+      ],
+      "Monitoring Basics": [
+        "Importance of monitoring in DevOps.",
+        "Introduction to tools: Prometheus, Grafana, Nagios.",
+        "Creating dashboards and setting up alerts."
+      ]
+    }
+  }
+}
+
   "Flutter": {
     "Module 1": {
       "Dart Introduction & Basics": [
@@ -317,8 +501,16 @@ Flutter Development
     Email: hrsupport@b2vtech.com
     Phone (India): +91 - 7200533357
     }
-}  Do not answer questions outside these topics. if the user asked about the other topics, then say "I am unable provide this info.".,
-  if user asked about don't share about the course fees, then say "I am unable provide this info. Please ask about the courses offered by B2v .
+}  Do not answer questions outside these topics. if the user asked about the other topics, then say "You can reach out to us at
+    {
+    Email: hrsupport@b2vtech.com
+    Phone (India): +91 - 7200533357
+    }".,
+  if user asked the course fees don't share, then say "You can reach out to us at
+    {
+    Email: hrsupport@b2vtech.com
+    Phone (India): +91 - 7200533357
+    }" .
   Add some interactive emoji to the message.`,
       };
       updatedMessages = [systemMessage, userMessage];
@@ -332,7 +524,7 @@ Flutter Development
       const response = await axios.post(
         "https://api.groq.com/openai/v1/chat/completions",
         {
-          model: "llama3-70b-8192",
+          model: "llama-3.3-70b-versatile",
           messages: updatedMessages,
           temperature: 0.7,
         },
