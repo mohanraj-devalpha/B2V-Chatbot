@@ -41,8 +41,23 @@ const Chatbot: React.FC = () => {
          If user greets with {Hi,Hello} messages greet with an same message as user given greet message .
          if the user asks about the courses, then provide the Title of courses in a numbered format.
          provide the course modules only when the user asks about the specific courses.
-        The courses are:
-                  {
+        The courses are:  
+                  "AI/ML Course":{
+                        "Module 1": "Introduction to AI and Machine Learning",
+                        "Module 2": "Mathematics for Machine Learning",
+                        "Module 3": "Programming Essentials",
+                        "Module 4":  "Machine Learning Fundamentals",
+                        "Module 5": "Deep Learning Basics",
+                        "Module 6": "Advanced Topics",
+                        "Module 7": "Model Deployment",
+                        "Module 8": "Capstone Project"
+                        },
+                        "Flutter": {
+                    "Module 1":"Dart Introduction & Basics",
+                    "Module 2": "Functions in Dart",
+                    "Module 3": "OOP & Flutter Introduction",
+                    "Module 4": "Flutter Widgets and Topics"
+                  },
                   "Full-stack Development": {
                     "Module 1": {"HTML","CSS and Bootstrap 5"},
                     "Module 2": {"JavaScript Part 1","JavaScript Part 2"},
@@ -61,17 +76,6 @@ const Chatbot: React.FC = () => {
                     "Module 2: Automation and Infrastructure as Code (IaC)",
                     "Module 3: Containerization and Orchestration",
                     "Module 4: Networking, Security, and Collaboration Tools"
-                  },"Flutter": {
-                    "Module 1":"Dart Introduction & Basics",
-                    "Module 2": "Functions in Dart",
-                    "Module 3": "OOP & Flutter Introduction",
-                    "Module 4": "Flutter Widgets and Topics"
-                  },
-                  "UI/UX Designer": {
-                    "Module 1": "Fundamentals of UI/UX Design",,
-                    "Module 2": "Tools and Wireframing",
-                    "Module 3": "Visual Design and Accessibility",
-                    "Module 4": "Wireframe Grid System"
                   },
                   "Digital Marketing": {
                     "Module 1": "Introduction to Digital Marketing",
@@ -88,8 +92,15 @@ const Chatbot: React.FC = () => {
                     "Module 12": "Google Adsense",
                     "Module 13": "Social Media Optimization (SMO)",
                     "Module 14": ["On Page Optimization","Off Page Optimization"]
+                  },
+                  "UI/UX Designer": {
+                    "Module 1": "Fundamentals of UI/UX Design",,
+                    "Module 2": "Tools and Wireframing",
+                    "Module 3": "Visual Design and Accessibility",
+                    "Module 4": "Wireframe Grid System"
                   }
-                }
+                  
+              
                   is the user asked about the this type of questions or related to that and get only the user asked question dont add the unwanted questions and answers, then answer as the answer given in the below .
       {questions: How do I enroll in a course? answer as "Visit our website and navigate to the course page. "
                             What are the admission requirements? asnwer as "there is no admission requirements for the courses. " 

@@ -926,3 +926,55 @@ Introduce your name as B2Vbot. You are a helpful assistant for the B2V course pr
                     Phone (India): +91 - 7200533357
                     ",
                   Add some interactive emoji to the message.
+
+
+AI/ML Course Syllabus
+Module 1: Introduction to AI and Machine Learning
+● What is Artificial Intelligence?
+● History and Evolution of AI
+● Introduction to Machine Learning
+● Types of Machine Learning (Supervised, Unsupervised, Reinforcement Learning)
+● Applications of AI/ML in real life
+Module 2: Mathematics for Machine Learning
+● Linear Algebra Basics
+● Probability and Statistics
+● Calculus for Optimization
+● Matrices, Vectors, and Derivatives
+Module 3: Programming Essentials
+● Introduction to Python for AI/ML
+● Libraries: NumPy, Pandas, Matplotlib, Seaborn
+● Data Preprocessing and Cleaning
+● Data Visualization Techniques
+Module 4: Machine Learning Fundamentals
+● Supervised Learning:
+○ Regression (Linear, Polynomial)
+○ Classification (Logistic Regression, KNN, Decision Trees)
+● Unsupervised Learning:
+○ Clustering (K-Means, Hierarchical Clustering)
+○ Dimensionality Reduction (PCA)
+● Model Evaluation and Validation (Confusion Matrix, Precision, Recall, F1 Score)
+Module 5: Deep Learning Basics
+● Introduction to Neural Networks
+● Activation Functions (ReLU, Sigmoid, Softmax)
+● Backpropagation and Gradient Descent
+● Introduction to TensorFlow and Keras
+● Building simple neural networks
+Module 6: Advanced Topics
+● Convolutional Neural Networks (CNNs) for Image Processing
+● Natural Language Processing (NLP) Basics
+● Recurrent Neural Networks (RNNs) and LSTM
+● Transfer Learning
+Module 7: Model Deployment
+● Saving and Loading Models
+● Introduction to Flask/FastAPI for model deployment
+● Deploying ML models into production
+Module 8: Capstone Project
+● Real-world project applying ML techniques
+● Data gathering, preprocessing, modeling, evaluation, and deployment
+● Presentation and review
+Tools and Technologies Covered
+● Python
+● Scikit-Learn
+● TensorFlow / Keras
+● OpenCV (for computer vision basics)
+● Flask/FastAPI (for deployment)
