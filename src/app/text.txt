@@ -1,38 +1,4 @@
-"use client"
-
-import React, { useRef, useState, useEffect } from "react";
-import axios from "axios";
-import { TbMessageChatbotFilled } from "react-icons/tb";
-
-interface Message {
-  role: "system" | "user" | "assistant";
-  content: string;
-}
-
-const Chatbot: React.FC = () => {
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [input, setInput] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
-  const [isChatVisible, setIsChatVisible] = useState<boolean>(false);
-  const bottomRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, loading]);
-
-  const handleSend = async () => {
-    if (!input.trim()) return;
-
-    setLoading(true);
-    const userMessage: Message = { role: "user", content: input };
-    setInput("");
-
-    let updatedMessages: Message[] = [];
-
-    if (messages.length === 0) {
-      const systemMessage: Message = {
-        role: "system",
-        content: `Introduce your name as B2Vbot. You are a helpful assistant for the
+`Introduce your name as B2Vbot. You are a helpful assistant for the
          B2V course providing website.List the courses as Listed Formatted with the
           number not with other icons. You first greet the user, but do not mention 
           anything about course details in your greeting.  Greet only don't provide about
@@ -478,8 +444,14 @@ const Chatbot: React.FC = () => {
                     Phone (India): +91 - 7200533357
                     ",
                   Add some interactive emoji to the message.
-                 is the user asked about the this type of questions or related to that, then answer as the answer given in the below .
-      {questions: How do I enroll in a course? answer as "Visit our website and navigate to the course page. "
+                  add this message to the system message:
+                  {
+                 
+                  `
+
+
+
+                  questions: How do I enroll in a course? answer as "Visit our website and navigate to the course page. "
                             What are the admission requirements? asnwer as "there is no admission requirements for the courses. " 
                             Is there an application deadline? answer as "No, there is no application deadline. "
                             Are classes available online or in-person? answer as "Classes are available both online and in-person. "
@@ -497,108 +469,3 @@ const Chatbot: React.FC = () => {
                             Which learning platform do you use? answer as "We use a Gmeet as our learning platform. "
                             What are your customer service hours? answer as "Our customer service hours are from 9 AM to 6 PM IST. "
                             in the above questions or related questions if the user asked, then answer as the answer given in the above.
-}
-                 
-                  `,
-      };
-      updatedMessages = [systemMessage, userMessage];
-    } else {
-      updatedMessages = [...messages, userMessage];
-    }
-
-    setMessages(updatedMessages);
-
-    try {
-      const response = await axios.post(
-        "https://api.groq.com/openai/v1/chat/completions",
-        {
-          model: "llama-3.3-70b-versatile",
-          messages: updatedMessages,
-          temperature: 0.7,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization:
-              "Bearer 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",
-          },
-        }
-      );
-
-      const reply: Message = response.data.choices[0].message;
-      setMessages([...updatedMessages, reply]);
-    } catch (error) {
-      console.error("Send error:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <div className=" fixed bottom-6 right-6 z-50">
-      {/* Toggle button */}
-      <button
-        onClick={() => setIsChatVisible(!isChatVisible)}
-        className="bg-blue-500 text-white p-3 rounded-full shadow-xl text-sm md:text-xl"
-      >
-        {isChatVisible ? (
-          "Close Chat"
-        ) : (
-          <TbMessageChatbotFilled className="animate-bounce md:text-3xl" />
-        )}
-      </button>
-
-      {/* Chatbox */}
-      {isChatVisible && (
-        <div className="fixed bottom-20 right-4 sm:right-6 w-[90vw] max-w-md bg-white border rounded-lg shadow-2xl flex flex-col h-[70vh] sm:h-[32rem]">
-          <div className="bg-blue-100 p-3 text-center font-semibold text-blue-700 rounded-t-lg">
-            B2v Chatbot
-          </div>
-
-          <div className="flex-1 overflow-y-auto p-3 space-y-2 bg-white text-black">
-            {messages
-              .filter((msg) => msg.role !== "system")
-              .map((msg, i) => (
-                <div
-                  key={i}
-                  className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"
-                    }`}
-                >
-                  <div
-                    className={`inline-block p-2 rounded-lg max-w-[80%] whitespace-pre-wrap text-sm ${msg.role === "user"
-                      ? "bg-blue-100 text-right"
-                      : "bg-gray-100 text-left"
-                      }`}
-                  >
-                    {msg.content}
-                  </div>
-                </div>
-              ))}
-
-
-            {loading && <div className="text-gray-400">Typing...</div>}
-            <div ref={bottomRef} />
-          </div>
-
-          <div className="flex p-3 border-t gap-2 bg-white">
-            <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSend()}
-              className="flex-1 border rounded px-3 py-2 text-sm focus:outline-none text-black"
-              placeholder="Ask something..."
-            />
-            <button
-              onClick={handleSend}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-sm"
-            >
-              Send
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default Chatbot;
