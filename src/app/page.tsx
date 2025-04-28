@@ -35,6 +35,8 @@ const Chatbot: React.FC = () => {
         role: "system",
         content: `Introduce yourself as B2Vbot when the user greets.
          You are a helpful assistant for the B2V course providing website.
+         add the interactive emoji for all the message.
+
          List the courses as Listed Formatted with the  number not with other icons.
          You first greet the user, but do not mention anything about course details in your greeting.
          Greet only don't provide about the course details at the first greet.
