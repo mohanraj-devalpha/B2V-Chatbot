@@ -166,16 +166,16 @@ const Chatbot: React.FC = () => {
   };
 
   return (
-    <div className=" fixed bottom-6 right-6 z-50">
+    <div className=" fixed bottom-10 right-10 z-50">
       {/* Toggle button */}
       <button
         onClick={() => setIsChatVisible(!isChatVisible)}
-        className="bg-blue-500 text-white p-3 rounded-full shadow-xl text-sm md:text-xl"
+        className="bg-blue-500 text-white p-5 rounded-full shadow-xl text-sm md:text-xl"
       >
         {isChatVisible ? (
           "Close Chat"
         ) : (
-          <TbMessageChatbotFilled className="animate-bounce md:text-3xl" />
+          <TbMessageChatbotFilled className="animate-bounce text-4xl" />
         )}
       </button>
 
