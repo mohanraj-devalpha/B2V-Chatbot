@@ -3,6 +3,10 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { TbMessageChatbotFilled } from "react-icons/tb";
+// import { RiCloseCircleLine } from "react-icons/ri";
+import { IoMdClose } from "react-icons/io";
+
+
 
 interface Message {
   role: "system" | "user" | "assistant";
@@ -173,7 +177,7 @@ const Chatbot: React.FC = () => {
         className="bg-blue-500 text-white p-5 rounded-full shadow-xl text-sm md:text-xl"
       >
         {isChatVisible ? (
-          "Close Chat"
+          <IoMdClose className="text-4xl"/>
         ) : (
           <TbMessageChatbotFilled className="animate-bounce text-4xl" />
         )}
@@ -181,7 +185,7 @@ const Chatbot: React.FC = () => {
 
       {/* Chatbox */}
       {isChatVisible && (
-        <div className="fixed bottom-20 right-4 sm:right-6 w-[90vw] max-w-md bg-white border rounded-lg shadow-2xl flex flex-col h-[70vh] sm:h-[32rem]">
+        <div className="fixed bottom-32 right-7 sm:right-6 w-[90vw] max-w-md bg-white border rounded-lg shadow-2xl flex flex-col h-[70vh] sm:h-[32rem]">
           <div className="bg-blue-100 p-3 text-center font-semibold text-blue-700 rounded-t-lg">
             B2v Chatbot
           </div>
