@@ -19,27 +19,22 @@ const Chatbot: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [isChatVisible, setIsChatVisible] = useState<boolean>(false);
   const bottomRef = useRef<HTMLDivElement | null>(null);
-
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
-
   const handleSend = async () => {
     if (!input.trim()) return;
-
     setLoading(true);
     const userMessage: Message = {
       role: "user",
       content: input
     };
     setInput("");
-
     let updatedMessages: Message[] = [];
-
     if (messages.length === 0) {
       const systemMessage: Message = {
         role: "system",
-        content: `Introduce yourself as B2Vbot when the user greets.
+        content: `Introduce yourself as BeeTalk when the user greets.
          You are a helpful assistant for the B2V course providing website.
          List the courses as Listed Formatted with the  number not with other icons.
          You first greet the user, but do not mention anything about course details in your greeting.
@@ -105,31 +100,29 @@ const Chatbot: React.FC = () => {
                     "Module 3": "Visual Design and Accessibility",
                     "Module 4": "Wireframe Grid System"
                   }
-                  
-              
                   is the user asked about the this type of questions or related to that and get only the user asked question dont add the unwanted questions and answers, then answer as the answer given in the below .
-      {questions: How do I enroll in a course? answer as "Visit our website and navigate to the course page. "
-                            What are the admission requirements? asnwer as "there is no admission requirements for the courses. " 
-                            Is there an application deadline? answer as "No, there is no application deadline. "
-                            Are classes available online or in-person? answer as "Classes are available both online and in-person. "
-                            Do you offer weekend or evening classes? answer as "yes, we offer weekend and evening classes. "
-                            What is the duration of the courses? answer as "The duration of each course is 3 months. "
-                            Will I receive a certificate upon completion? answer as "Yes, you will receive a certificate upon completion
-                            Is the certification recognized in the industry? answer as "Yes, the certification is recognized in the industry. "
-                            Do you provide job placement assistance? answer as "Yes, we provide job placement assistance but based on the performance of the candidate. "
-                            What career paths can I pursue after completing a course? shout out the email and phone number as "You can reach out to us at"
-                            What is the fee structure for the courses? shout out the email and phone number as "You can reach out to us at"
-                            Do you offer installment payment options? answer as "Yes, we offer installment payment options. "
-                            What are the system requirements for online classes? answer as "You will need a computer or mobile device with internet access. "
-                            Can I access course materials on my mobile device? answer as "Yes, course materials are accessible on mobile devices. "
-                            Do you provide technical support during the course? answer as "Yes, we provide technical support during the course. "
-                            Which learning platform do you use? answer as "We use a Gmeet as our learning platform. "
-                            What are your customer service hours? answer as "Our customer service hours are from 9 AM to 6 PM IST. "
-                            in the above questions or related questions if the user asked, then answer as the answer given in the above.}
+                           questions: How do I enroll in a course? answer as "Visit our website and navigate to the course page. "
+                            What are the admission requirements? asnwer as "there is no admission requirements for the courses. " 
+                            Is there an application deadline? answer as "No, there is no application deadline. "
+                            Are classes available online or in-person? answer as "Classes are available both online and in-person. "
+                            Do you offer weekend or evening classes? answer as "yes, we offer weekend and evening classes. "
+                            What is the duration of the courses? answer as "The duration of each course is 3 months. "
+                            Will I receive a certificate upon completion? answer as "Yes, you will receive a certificate upon completion
+                            Is the certification recognized in the industry? answer as "Yes, the certification is recognized in the industry. "
+                            Do you provide job placement assistance? answer as "Yes, we provide job placement assistance but based on the performance of the candidate. "
+                            What career paths can I pursue after completing a course? shout out the email and phone number as "You can reach out to us at"
+                            What is the fee structure for the courses? shout out the email and phone number as "You can reach out to us at"
+                            Do you offer installment payment options? answer as "Yes, we offer installment payment options. "
+                            What are the system requirements for online classes? answer as "You will need a computer or mobile device with internet access. "
+                            Can I access course materials on my mobile device? answer as "Yes, course materials are accessible on mobile devices. "
+                            Do you provide technical support during the course? answer as "Yes, we provide technical support during the course. "
+                            Which learning platform do you use? answer as "We use a Gmeet as our learning platform. "
+                            What are your customer service hours? answer as "Our customer service hours are from 9 AM to 6 PM IST. "
+                            in the above questions or related questions if the user asked, then answer as the answer given in the above.
 
                 Do not answer questions outside these topics. if the user asked about the other topics, then say 
                     "You can reach out to us at
-                    Email: hrsupport@b2vtech.com
+                    Email: b2vtechnology@gmail.com
                     Phone (India): +91 - 7200533357
                     ",
                   the customer service hours are 9:00 AM to 6:00 PM IST.
@@ -142,9 +135,7 @@ const Chatbot: React.FC = () => {
     } else {
       updatedMessages = [...messages, userMessage];
     }
-
     setMessages(updatedMessages);
-
     try {
       const response = await axios.post(
         "https://api.groq.com/openai/v1/chat/completions",
@@ -161,7 +152,6 @@ const Chatbot: React.FC = () => {
           },
         }
       );
-
       const reply: Message = response.data.choices[0].message;
       setMessages([...updatedMessages, reply]);
     } catch (error) {
@@ -170,7 +160,6 @@ const Chatbot: React.FC = () => {
       setLoading(false);
     }
   };
-
   return (
     <div
       className={`fixed bottom-10 right-10 z-50 ${!isChatVisible ? 'animate-bounce' : ''
@@ -187,14 +176,12 @@ const Chatbot: React.FC = () => {
           <TbMessageChatbotFilled className="text-3xl" />
         )}
       </button>
-
       {/* Chatbox */}
       {isChatVisible && (
         <div className="fixed bottom-32 right-7 sm:right-6 w-[90vw] max-w-md bg-white border rounded-lg shadow-2xl flex flex-col h-[70vh] sm:h-[32rem]">
           <div className="bg-blue-100 p-3 text-center font-semibold text-blue-700 rounded-t-lg">
-            B2v Chatbot
+            BeeTalk
           </div>
-
           <div className="flex-1 overflow-y-auto p-3 space-y-2 bg-white text-black">
             {messages
               .filter((msg) => msg.role !== "system")
@@ -214,12 +201,9 @@ const Chatbot: React.FC = () => {
                   </div>
                 </div>
               ))}
-
-
             {loading && <div className="text-gray-400">Typing...</div>}
             <div ref={bottomRef} />
           </div>
-
           <div className="flex p-3 border-t gap-2 bg-white">
             <input
               value={input}
@@ -240,5 +224,4 @@ const Chatbot: React.FC = () => {
     </div>
   );
 };
-
 export default Chatbot;
