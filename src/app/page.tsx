@@ -28,8 +28,10 @@ const Chatbot: React.FC = () => {
     if (!input.trim()) return;
 
     setLoading(true);
-    const userMessage: Message = { role: "user", 
-      content: input };
+    const userMessage: Message = {
+      role: "user",
+      content: input
+    };
     setInput("");
 
     let updatedMessages: Message[] = [];
@@ -170,16 +172,19 @@ const Chatbot: React.FC = () => {
   };
 
   return (
-    <div className=" fixed bottom-10 right-10 z-50">
+    <div
+      className={`fixed bottom-10 right-10 z-50 ${!isChatVisible ? 'animate-bounce' : ''
+        }`}
+    >
       {/* Toggle button */}
       <button
         onClick={() => setIsChatVisible(!isChatVisible)}
         className="bg-blue-500 text-white p-5 rounded-full shadow-xl text-sm md:text-xl"
       >
         {isChatVisible ? (
-          <IoMdClose className="text-4xl"/>
+          <IoMdClose className="text-3xl" />
         ) : (
-          <TbMessageChatbotFilled className="animate-bounce text-4xl" />
+          <TbMessageChatbotFilled className="text-3xl" />
         )}
       </button>
 
