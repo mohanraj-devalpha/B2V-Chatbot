@@ -256,7 +256,7 @@ const Chatbot: React.FC = () => {
           </div>
           </div>
           <div className="bg-gray-100  text-center">
-            <span className="text-cyan-500 text-[13px] px-5">BeeTalk can make mistakes.Double check with our customer care services</span>
+            <span className="text-cyan-500 text-[13px] px-5">BeeTalk can make mistakes. Double-Check response with our customer care services</span>
           </div>
         </div>
       )}
