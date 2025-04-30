@@ -174,7 +174,7 @@ const Chatbot: React.FC = () => {
       {/* Toggle button */}
       <button
         onClick={() => setIsChatVisible(!isChatVisible)}
-        className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-full shadow-xl transition-all duration-200 flex items-center justify-center w-12 h-12 md:w-14 md:h-14"
+        className="bg-white hover:bg-blue-600 text-white p-4 rounded-full shadow-xl transition-all duration-200 flex items-center justify-center w-15 h-15 md:w-20 md:h-20"
       >
         {isChatVisible ? (
           <IoMdClose className="text-2xl" />
@@ -182,8 +182,8 @@ const Chatbot: React.FC = () => {
           <Image
             src={'/lobo.png'}
             alt="lobo"
-            width={20}
-            height={20}
+            width={30}
+            height={30}
             className="object-contain"
           />
         )}
