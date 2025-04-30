@@ -1,8 +1,9 @@
 "use client"
 
 import React, { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import axios from "axios";
-import { TbMessageChatbotFilled } from "react-icons/tb";
+// import { TbMessageChatbotFilled } from "react-icons/tb";
 // import { RiCloseCircleLine } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
 
@@ -19,6 +20,10 @@ const Chatbot: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [isChatVisible, setIsChatVisible] = useState<boolean>(false);
   const bottomRef = useRef<HTMLDivElement | null>(null);
+
+
+  
+
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
@@ -44,21 +49,21 @@ const Chatbot: React.FC = () => {
          provide the course modules only when the user asks about the specific courses dont provide the modoule subtopics proivde the response as "visit our website course details page".
          Dont provide the outside topics and dont answer the questions outside the topics strictly.
         The courses are:  
-                  "AI/ML Course":{
-                        "Module 1": "Introduction to AI and Machine Learning",
-                        "Module 2": "Mathematics for Machine Learning",
-                        "Module 3": "Programming Essentials",
-                        "Module 4":  "Machine Learning Fundamentals",
-                        "Module 5": "Deep Learning Basics",
-                        "Module 6": "Advanced Topics",
-                        "Module 7": "Model Deployment",
-                        "Module 8": "Capstone Project"
-                        },
-                        "Flutter": {
-                    "Module 1":"Dart Introduction & Basics",
-                    "Module 2": "Functions in Dart",
-                    "Module 3": "OOP & Flutter Introduction",
-                    "Module 4": "Flutter Widgets and Topics"
+            "AI/ML Course":{
+                  "Module 1": "Introduction to AI and Machine Learning",
+                  "Module 2": "Mathematics for Machine Learning",
+                  "Module 3": "Programming Essentials",
+                  "Module 4":  "Machine Learning Fundamentals",
+                  "Module 5": "Deep Learning Basics",
+                  "Module 6": "Advanced Topics",
+                  "Module 7": "Model Deployment",
+                  "Module 8": "Capstone Project"
+                  },
+                  "Flutter": {
+                  "Module 1":"Dart Introduction & Basics",
+                  "Module 2": "Functions in Dart",
+                  "Module 3": "OOP & Flutter Introduction",
+                  "Module 4": "Flutter Widgets and Topics"
                   },
                   "Full-stack Development": {
                     "Module 1": {"HTML","CSS and Bootstrap 5"},
@@ -102,25 +107,25 @@ const Chatbot: React.FC = () => {
                     "Module 4": "Wireframe Grid System"
                   }
                   is the user asked about the this type of questions or related to that and get only the user asked question dont add the unwanted questions and answers, then answer as the answer given in the below .
-                           questions: How do I enroll in a course? answer as "Visit our website and navigate to the course page. "
-                            What are the admission requirements? asnwer as "there is no admission requirements for the courses. " 
-                            Is there an application deadline? answer as "No, there is no application deadline. "
-                            Are classes available online or in-person? answer as "Classes are available both online and in-person. "
-                            Do you offer weekend or evening classes? answer as "yes, we offer weekend and evening classes. "
-                            What is the duration of the courses? answer as "The duration of each course is 3 months. "
-                            Will I receive a certificate upon completion? answer as "Yes, you will receive a certificate upon completion
-                            Is the certification recognized in the industry? answer as "Yes, the certification is recognized in the industry. "
-                            Do you provide job placement assistance? answer as "Yes, we provide job placement assistance but based on the performance of the candidate. "
-                            What career paths can I pursue after completing a course? shout out the email and phone number as "You can reach out to us at"
-                            What is the fee structure for the courses? shout out the email and phone number as "You can reach out to us at"
-                            Do you offer installment payment options? answer as "Yes, we offer installment payment options. "
-                            What are the system requirements for online classes? answer as "You will need a computer or mobile device with internet access. "
-                            Can I access course materials on my mobile device? answer as "Yes, course materials are accessible on mobile devices. "
-                            Do you provide technical support during the course? answer as "Yes, we provide technical support during the course. "
-                            Which learning platform do you use? answer as "We use a Gmeet as our learning platform. "
-                            What are your customer service hours? answer as "Our customer service hours are from 9 AM to 6 PM IST. "
-                            in the above questions or related questions if the user asked, then answer as the answer given in the above.
-
+                  questions: How do I enroll in a course? answer as "Visit our website and navigate to the course page. "
+                  What are the admission requirements? asnwer as "there is no admission requirements for the courses. " 
+                  Is there an application deadline? answer as "No, there is no application deadline. "
+                  Are classes available online or in-person? answer as "Classes are available both online and in-person. "
+                  Do you offer weekend or evening classes? answer as "yes, we offer weekend and evening classes. "
+                  What is the duration of the courses? answer as "The duration of each course is 3 months. "
+                  Will I receive a certificate upon completion? answer as "Yes, you will receive a certificate upon completion
+                  Is the certification recognized in the industry? answer as "Yes, the certification is recognized in the industry. "
+                  Do you provide job placement assistance? answer as "Yes, we provide job placement assistance but based on the performance of the candidate. "
+                  What career paths can I pursue after completing a course? shout out the email and phone number as "You can reach out to us at"
+                  What is the fee structure for the courses? shout out the email and phone number as "You can reach out to us at"
+                  Do you offer installment payment options? answer as "Yes, we offer installment payment options. "
+                  What are the system requirements for online classes? answer as "You will need a computer or mobile device with internet access. "
+                  Can I access course materials on my mobile device? answer as "Yes, course materials are accessible on mobile devices. "
+                  Do you provide technical support during the course? answer as "Yes, we provide technical support during the course. "
+                  Which learning platform do you use? answer as "We use a Gmeet as our learning platform. "
+                  What are your customer service hours? answer as "Our customer service hours are from 9 AM to 6 PM IST. "
+                  in the above questions or related questions if the user asked, then answer as the answer given in the above.
+                  
                 Do not answer questions outside these topics. if the user asked about the other topics, then say 
                     "You can reach out to us at
                     Email: b2vtechnology@gmail.com
@@ -169,21 +174,33 @@ const Chatbot: React.FC = () => {
       {/* Toggle button */}
       <button
         onClick={() => setIsChatVisible(!isChatVisible)}
-        className="bg-blue-500 text-white p-5 rounded-full shadow-xl text-sm md:text-xl"
+        className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-full shadow-xl transition-all duration-200 flex items-center justify-center w-12 h-12 md:w-14 md:h-14"
       >
         {isChatVisible ? (
-          <IoMdClose className="text-3xl" />
+          <IoMdClose className="text-2xl" />
         ) : (
-          <TbMessageChatbotFilled className="text-3xl" />
+          <Image
+            src={'/lobo.png'}
+            alt="lobo"
+            width={20}
+            height={20}
+            className="object-contain"
+          />
         )}
       </button>
       {/* Chatbox */}
       {isChatVisible && (
-        <div className="fixed bottom-32 right-7 sm:right-6 w-[90vw] max-w-md bg-white border rounded-lg shadow-2xl flex flex-col h-[70vh] sm:h-[32rem]">
-          <div className="bg-blue-100 p-3 text-center font-semibold text-blue-700 rounded-t-lg">
+        <div className="fixed bottom-0 right-7 sm:right-6 w-[90vw] max-w-md bg-white border rounded-lg shadow-2xl flex flex-col h-[70vh] sm:h-[32rem]">
+          <div className="bg-blue-100 flex justify-between p-3 text-center font-semibold text-blue-700 rounded-t-lg">
             BeeTalk
+            <button onClick={() => setIsChatVisible(false)} className="text-blue-700 hover:text-blue-900">
+              <IoMdClose className="text-2xl" />
+            </button>
+
           </div>
           <div className="flex-1 overflow-y-auto p-3 space-y-2 bg-white text-black">
+            <span className="block text-sm text-gray-500 text-center">  Today {new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}
+            </span>
             {messages
               .filter((msg) => msg.role !== "system")
               .map((msg, i) => (
