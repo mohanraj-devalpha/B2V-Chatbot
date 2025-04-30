@@ -198,13 +198,13 @@ const Chatbot: React.FC = () => {
             BeeTalk
 
             <button onClick={() => setIsChatVisible(false)} className="text-blue-800 hover:text-blue-900">
-              <IoMdClose className="text-2xl" />
+              <IoMdClose className="text-lg" />
             </button>
 
           </div>
           <div className="flex-1 overflow-y-auto p-3 space-y-2 bg-gray-100 text-black">
             <div className="">
-              <span className="block text-sm text-gray-500 text-center">  Today {new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true })}
+              <span className="block text-sm text-cyan-500 text-center">  Today {new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true })}
 
 
               </span>
@@ -254,14 +254,14 @@ const Chatbot: React.FC = () => {
                 onClick={() => {
                   setMessages([]); // 🧹 Clear chat
                 }}
-                className="text-white bg-blue-800 rounded-2xl px-3 py-3"
+                className="text-white bg-black rounded-2xl px-3 py-3"
                 title="Clear Chat"
               >
                 <IoMdRefresh className="text-sm " />
               </button>
               <button
                 onClick={handleSend}
-                className="bg-blue-800 text-white px-4 py-2 rounded-full hover:bg-blue-600 text-sm"
+                className="bg-black text-white px-4 py-2 rounded-full text-sm"
               >
                 <IoMdArrowUp />
               </button>
