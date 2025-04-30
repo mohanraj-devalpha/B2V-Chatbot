@@ -42,6 +42,7 @@ const Chatbot: React.FC = () => {
          If user greets with {Hi,Hello} messages greet with an same message as user given greet message .
          if the user asks about the courses, then provide the Title of courses in a numbered format.
          provide the course modules only when the user asks about the specific courses dont provide the modoule subtopics proivde the response as "visit our website course details page".
+         Dont provide the outside topics and dont answer the questions outside the topics strictly.
         The courses are:  
                   "AI/ML Course":{
                         "Module 1": "Introduction to AI and Machine Learning",
