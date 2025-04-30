@@ -3,14 +3,13 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import axios from "axios";
-import { IoMdArrowUp } from 'react-icons/io';
+import { IoPaperPlaneSharp } from "react-icons/io5";
+
 import { IoMdClose, IoMdRefresh } from "react-icons/io"; // Make sure both icons are imported
 
 
 // import { TbMessageChatbotFilled } from "react-icons/tb";
 // import { RiCloseCircleLine } from "react-icons/ri";
-
-
 
 interface Message {
   role: "system" | "user" | "assistant";
@@ -51,7 +50,7 @@ const Chatbot: React.FC = () => {
          if the user asks about the courses, then provide the Title of courses in a numbered format.
          provide the course modules only when the user asks about the specific courses dont provide the modoule subtopics proivde the response as "visit our website course details page".
          Dont provide the outside topics and dont answer the questions outside the topics strictly.
-        The courses are:  
+         The courses are:  
             "AI/ML Course":{
                   "Module 1": "Introduction to AI and Machine Learning",
                   "Module 2": "Mathematics for Machine Learning",
@@ -171,108 +170,105 @@ const Chatbot: React.FC = () => {
   };
   return (
     <div
-      className={`fixed bottom-10 right-10 z-50  ${!isChatVisible ? 'animate-bounce' : ''
-        }`}
-    >
-      {/* Toggle button */}
-      <button
-        onClick={() => setIsChatVisible(!isChatVisible)}
-        className="bg-blue-800 hover:bg-blue-600 text-white p-4 rounded-full shadow-2xl transition-all duration-200 flex items-center justify-center w-15 h-15 md:w-20 md:h-20"
-      >
-        {isChatVisible ? (
-          <IoMdClose className="text-2xl" />
-        ) : (
-          <Image
-            src={'/lobo.png'}
-            alt="lobo"
-            width={30}
-            height={30}
-            className="object-contain"
-          />
-        )}
-      </button>
-      {/* Chatbox */}
-      {isChatVisible && (
-        <div className="fixed bottom-5 right-7 sm:right-6 w-[90vw] max-w-md bg-white border rounded-lg shadow-2xl flex flex-col h-[70vh] sm:h-[32rem]">
-          <div className="bg-blue-200 flex justify-between p-3 text-center font-semibold text-blue-800 rounded-t-lg">
-            BeeTalk
+  className={`fixed bottom-6 right-6 z-50 ${!isChatVisible ? 'animate-bounce' : ''}`}
+>
+  {/* Toggle Button */}
+  <button
+    onClick={() => setIsChatVisible(!isChatVisible)}
+    className="bg-blue-800 hover:bg-blue-600 text-white p-4 rounded-full shadow-2xl transition-all duration-200 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16"
+  >
+    {isChatVisible ? (
+      <IoMdClose className="text-2xl" />
+    ) : (
+      <Image
+        src="/lobo.png"
+        alt="lobo"
+        width={30}
+        height={30}
+        className="object-contain"
+      />
+    )}
+  </button>
 
-            <button onClick={() => setIsChatVisible(false)} className="text-blue-800 hover:text-blue-900">
-              <IoMdClose className="text-lg" />
-            </button>
+  {/* Chatbox */}
+  {isChatVisible && (
+    <div className="fixed bottom-6 right-6 w-[90vw] sm:w-[90vw] md:max-w-md bg-white border rounded-lg shadow-2xl flex flex-col h-[80vh] sm:h-[70vh] md:h-[32rem]">
+      {/* Header */}
+      <div className="bg-blue-200 flex justify-between items-center p-3 font-semibold text-blue-800 rounded-t-lg">
+        BeeTalk
+        <button onClick={() => setIsChatVisible(false)} className="text-blue-800 hover:text-blue-900">
+          <IoMdClose className="text-lg" />
+        </button>
+      </div>
 
-          </div>
-          <div className="flex-1 overflow-y-auto p-3 space-y-2 bg-gray-100 text-black">
-            <div className="">
-              <span className="block text-sm text-cyan-500 text-center">  Today {new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true })}
-
-
-              </span>
-            </div>
-            {messages
-              .filter((msg) => msg.role !== "system")
-              .map((msg, i) => (
-                <div
-                  key={i}
-                  className={`flex items-start ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-                >
-                  {/* Show logo/avatar for assistant messages */}
-                  {msg.role !== "user" && (
-                    <div className="mr-2">
-                      <Image
-                        src={'/lobo.png'} // Replace with your logo path
-                        alt="Bot"
-                        width={20}
-                        height={20}
-                        className="object-contain"
-                      />
-                    </div>
-                  )}
-
-                  <div
-                    className={`inline-block p-2 rounded-lg max-w-[80%] whitespace-pre-wrap text-[12px] border-amber-400 ${msg.role === "user" ? "bg-blue-100 text-right" : "bg-gray-100 text-left"
-                      }`}
-                  >
-                    {msg.content}
-                  </div>
-                </div>
-              ))}
-
-            {loading && <div className="text-gray-400">Typing...</div>}
-            <div ref={bottomRef} />
-          </div>
-          <div className="bg-gray-100 shadow-xl px-5">
-            <div className="flex p-3  gap-2 bg-white rounded-2xl m-1 px-5 border-4">
-              <input
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSend()}
-                className="flex-1 border rounded-xl px-3 py-2 text-sm focus:outline-none text-black "
-                placeholder="Ask anything..."
-              />
-              <button
-                onClick={() => {
-                  setMessages([]); // 🧹 Clear chat
-                }}
-                className="text-white bg-black rounded-2xl px-3 py-3"
-                title="Clear Chat"
-              >
-                <IoMdRefresh className="text-sm " />
-              </button>
-              <button
-                onClick={handleSend}
-                className="bg-black text-white px-4 py-2 rounded-full text-sm"
-              >
-                <IoMdArrowUp />
-              </button>
-            </div>
-          </div>
-          <div className="bg-gray-100  text-center">
-            <span className="text-cyan-500 text-[13px] px-5">BeeTalk can make mistakes. Double-Check response with our customer care services</span>
-          </div>
+      {/* Messages */}
+      <div className="flex-1 overflow-y-auto p-3 space-y-2 bg-gray-100 text-black">
+        <div className="text-sm text-cyan-500 text-center">
+          Today {new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true })}
         </div>
-      )}
+        {messages
+          .filter((msg) => msg.role !== "system")
+          .map((msg, i) => (
+            <div
+              key={i}
+              className={`flex items-start ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+            >
+              {msg.role !== "user" && (
+                <div className="mr-2">
+                  <Image
+                    src="/lobo.png"
+                    alt="Bot"
+                    width={20}
+                    height={20}
+                    className="object-contain"
+                  />
+                </div>
+              )}
+              <div
+                className={`inline-block p-2 rounded-lg max-w-[80%] whitespace-pre-wrap text-[12px] border${msg.role === "user" ? "bg-blue-100 text-right" : "bg-gray-100 text-left"}`}
+              >
+                {msg.content}
+              </div>
+            </div>
+          ))}
+        {loading && <div className="text-gray-400">Typing...</div>}
+        <div ref={bottomRef} />
+      </div>
+
+      {/* Input Area */}
+      <div className="bg-gray-100 shadow-inner px-4 py-2">
+        <div className="flex gap-2 bg-white rounded-2xl p-2 border-4">
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleSend()}
+            className="flex-1 px-3 py-2 text-sm border-none focus:outline-none rounded-xl text-black"
+            placeholder="Ask anything..."
+          />
+          <button
+            onClick={() => setMessages([])}
+            className="text-white bg-black rounded-xl p-2"
+            title="Clear Chat"
+          >
+            <IoMdRefresh className="text-sm" />
+          </button>
+          <button
+            onClick={handleSend}
+            className="bg-black text-white p-2 rounded-full"
+          >
+            <IoPaperPlaneSharp/>
+          </button>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="bg-gray-100 text-center p-2 text-[13px] text-cyan-500">
+        BeeTalk can make mistakes. Double-check responses with our customer care.
+      </div>
     </div>
+  )}
+</div>
+
   );
 };
 export default Chatbot;
