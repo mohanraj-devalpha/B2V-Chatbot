@@ -196,7 +196,7 @@ const Chatbot: React.FC = () => {
         <div className="fixed bottom-5 right-7 sm:right-6 w-[90vw] max-w-md bg-white border rounded-lg shadow-2xl flex flex-col h-[70vh] sm:h-[32rem]">
           <div className="bg-blue-200 flex justify-between p-3 text-center font-semibold text-blue-800 rounded-t-lg">
             BeeTalk
-            
+
             <button onClick={() => setIsChatVisible(false)} className="text-blue-800 hover:text-blue-900">
               <IoMdClose className="text-2xl" />
             </button>
@@ -204,56 +204,68 @@ const Chatbot: React.FC = () => {
           </div>
           <div className="flex-1 overflow-y-auto p-3 space-y-2 bg-gray-100 text-black">
             <div className="">
-            <span className="block text-sm text-gray-500 text-center">  Today {new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}
-           
-            </span>
+              <span className="block text-sm text-gray-500 text-center">  Today {new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true })}
+
+
+              </span>
             </div>
             {messages
               .filter((msg) => msg.role !== "system")
               .map((msg, i) => (
                 <div
                   key={i}
-                  className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"
-                    }`}
+                  className={`flex items-start ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
+                  {/* Show logo/avatar for assistant messages */}
+                  {msg.role !== "user" && (
+                    <div className="mr-2">
+                      <Image
+                        src={'/lobo.png'} // Replace with your logo path
+                        alt="Bot"
+                        width={20}
+                        height={20}
+                        className="object-contain"
+                      />
+                    </div>
+                  )}
+
                   <div
-                    className={`inline-block p-2 rounded-lg max-w-[80%] whitespace-pre-wrap text-sm border-amber-400 ${msg.role === "user"
-                      ? "bg-blue-100 text-right"
-                      : "bg-gray-100 text-left"
+                    className={`inline-block p-2 rounded-lg max-w-[80%] whitespace-pre-wrap text-[12px] border-amber-400 ${msg.role === "user" ? "bg-blue-100 text-right" : "bg-gray-100 text-left"
                       }`}
                   >
                     {msg.content}
                   </div>
                 </div>
               ))}
+
             {loading && <div className="text-gray-400">Typing...</div>}
             <div ref={bottomRef} />
           </div>
           <div className="bg-gray-100 shadow-xl px-5">
-          <div className="flex p-3  gap-2 bg-white rounded-2xl m-1 px-5 border-4">
-            <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSend()}
-              className="flex-1 border rounded-xl px-3 py-2 text-sm focus:outline-none text-black "
-              placeholder="Ask anything..."
-            />
-             <button
-              onClick={() => {
-                setMessages([]); // 🧹 Clear chat
-              }}
-              className="text-white bg-blue-800 rounded-2xl px-3 py-3"
-              title="Clear Chat"
-            >
-              <IoMdRefresh className="text-sm " />
-            </button>
-            <button
-              onClick={handleSend}
-              className="bg-blue-800 text-white px-4 py-2 rounded-full hover:bg-blue-600 text-sm"
-            >
-              <IoMdArrowUp />
-            </button>
-          </div>
+            <div className="flex p-3  gap-2 bg-white rounded-2xl m-1 px-5 border-4">
+              <input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleSend()}
+                className="flex-1 border rounded-xl px-3 py-2 text-sm focus:outline-none text-black "
+                placeholder="Ask anything..."
+              />
+              <button
+                onClick={() => {
+                  setMessages([]); // 🧹 Clear chat
+                }}
+                className="text-white bg-blue-800 rounded-2xl px-3 py-3"
+                title="Clear Chat"
+              >
+                <IoMdRefresh className="text-sm " />
+              </button>
+              <button
+                onClick={handleSend}
+                className="bg-blue-800 text-white px-4 py-2 rounded-full hover:bg-blue-600 text-sm"
+              >
+                <IoMdArrowUp />
+              </button>
+            </div>
           </div>
           <div className="bg-gray-100  text-center">
             <span className="text-cyan-500 text-[13px] px-5">BeeTalk can make mistakes. Double-Check response with our customer care services</span>
