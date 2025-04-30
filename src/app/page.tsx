@@ -193,8 +193,8 @@ const Chatbot: React.FC = () => {
       </button>
       {/* Chatbox */}
       {isChatVisible && (
-        <div className="fixed bottom-0 right-7 sm:right-6 w-[90vw] max-w-md bg-white border rounded-lg shadow-2xl flex flex-col h-[70vh] sm:h-[32rem]">
-          <div className="bg-blue-100 flex justify-between p-3 text-center font-semibold text-blue-800 rounded-t-lg">
+        <div className="fixed bottom-5 right-7 sm:right-6 w-[90vw] max-w-md bg-white border rounded-lg shadow-2xl flex flex-col h-[70vh] sm:h-[32rem]">
+          <div className="bg-blue-200 flex justify-between p-3 text-center font-semibold text-blue-800 rounded-t-lg">
             BeeTalk
             
             <button onClick={() => setIsChatVisible(false)} className="text-blue-800 hover:text-blue-900">
@@ -202,7 +202,7 @@ const Chatbot: React.FC = () => {
             </button>
 
           </div>
-          <div className="flex-1 overflow-y-auto p-3 space-y-2 bg-white text-black">
+          <div className="flex-1 overflow-y-auto p-3 space-y-2 bg-gray-100 text-black">
             <div className="">
             <span className="block text-sm text-gray-500 text-center">  Today {new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}
            
@@ -229,12 +229,13 @@ const Chatbot: React.FC = () => {
             {loading && <div className="text-gray-400">Typing...</div>}
             <div ref={bottomRef} />
           </div>
-          <div className="flex p-3 border-t gap-2 bg-white">
+          <div className="bg-gray-100 shadow-xl px-5">
+          <div className="flex p-3  gap-2 bg-white rounded-2xl m-1 px-5 border-4">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
-              className="flex-1 border rounded-xl px-3 py-2 text-sm focus:outline-none text-black"
+              className="flex-1 border rounded-xl px-3 py-2 text-sm focus:outline-none text-black "
               placeholder="Ask anything..."
             />
              <button
@@ -252,6 +253,10 @@ const Chatbot: React.FC = () => {
             >
               <IoMdArrowUp />
             </button>
+          </div>
+          </div>
+          <div className="bg-gray-100  text-center">
+            <span className="text-cyan-500 text-[13px] px-5">BeeTalk can make mistakes.Double check with our customer care services</span>
           </div>
         </div>
       )}
