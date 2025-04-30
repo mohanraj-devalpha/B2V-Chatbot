@@ -4,10 +4,11 @@ import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import axios from "axios";
 import { IoMdArrowUp } from 'react-icons/io';
+import { IoMdClose, IoMdRefresh } from "react-icons/io"; // Make sure both icons are imported
+
 
 // import { TbMessageChatbotFilled } from "react-icons/tb";
 // import { RiCloseCircleLine } from "react-icons/ri";
-import { IoMdClose } from "react-icons/io";
 
 
 
@@ -24,7 +25,7 @@ const Chatbot: React.FC = () => {
   const bottomRef = useRef<HTMLDivElement | null>(null);
 
 
-  
+
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -195,14 +196,18 @@ const Chatbot: React.FC = () => {
         <div className="fixed bottom-0 right-7 sm:right-6 w-[90vw] max-w-md bg-white border rounded-lg shadow-2xl flex flex-col h-[70vh] sm:h-[32rem]">
           <div className="bg-blue-100 flex justify-between p-3 text-center font-semibold text-blue-800 rounded-t-lg">
             BeeTalk
+            
             <button onClick={() => setIsChatVisible(false)} className="text-blue-800 hover:text-blue-900">
               <IoMdClose className="text-2xl" />
             </button>
 
           </div>
           <div className="flex-1 overflow-y-auto p-3 space-y-2 bg-white text-black">
+            <div className="">
             <span className="block text-sm text-gray-500 text-center">  Today {new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}
+           
             </span>
+            </div>
             {messages
               .filter((msg) => msg.role !== "system")
               .map((msg, i) => (
@@ -232,11 +237,20 @@ const Chatbot: React.FC = () => {
               className="flex-1 border rounded-xl px-3 py-2 text-sm focus:outline-none text-black"
               placeholder="Ask anything..."
             />
+             <button
+              onClick={() => {
+                setMessages([]); // 🧹 Clear chat
+              }}
+              className="text-white bg-blue-800 rounded-2xl px-3 py-3"
+              title="Clear Chat"
+            >
+              <IoMdRefresh className="text-sm " />
+            </button>
             <button
               onClick={handleSend}
               className="bg-blue-800 text-white px-4 py-2 rounded-full hover:bg-blue-600 text-sm"
             >
-              <IoMdArrowUp/>
+              <IoMdArrowUp />
             </button>
           </div>
         </div>
