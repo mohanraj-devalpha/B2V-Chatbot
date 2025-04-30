@@ -3,6 +3,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import axios from "axios";
+import { IoMdArrowUp } from 'react-icons/io';
+
 // import { TbMessageChatbotFilled } from "react-icons/tb";
 // import { RiCloseCircleLine } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
@@ -168,13 +170,13 @@ const Chatbot: React.FC = () => {
   };
   return (
     <div
-      className={`fixed bottom-10 right-10 z-50 ${!isChatVisible ? 'animate-bounce' : ''
+      className={`fixed bottom-10 right-10 z-50  ${!isChatVisible ? 'animate-bounce' : ''
         }`}
     >
       {/* Toggle button */}
       <button
         onClick={() => setIsChatVisible(!isChatVisible)}
-        className="bg-white hover:bg-blue-600 text-white p-4 rounded-full shadow-xl transition-all duration-200 flex items-center justify-center w-15 h-15 md:w-20 md:h-20"
+        className="bg-blue-800 hover:bg-blue-600 text-white p-4 rounded-full shadow-2xl transition-all duration-200 flex items-center justify-center w-15 h-15 md:w-20 md:h-20"
       >
         {isChatVisible ? (
           <IoMdClose className="text-2xl" />
@@ -191,9 +193,9 @@ const Chatbot: React.FC = () => {
       {/* Chatbox */}
       {isChatVisible && (
         <div className="fixed bottom-0 right-7 sm:right-6 w-[90vw] max-w-md bg-white border rounded-lg shadow-2xl flex flex-col h-[70vh] sm:h-[32rem]">
-          <div className="bg-blue-100 flex justify-between p-3 text-center font-semibold text-blue-700 rounded-t-lg">
+          <div className="bg-blue-100 flex justify-between p-3 text-center font-semibold text-blue-800 rounded-t-lg">
             BeeTalk
-            <button onClick={() => setIsChatVisible(false)} className="text-blue-700 hover:text-blue-900">
+            <button onClick={() => setIsChatVisible(false)} className="text-blue-800 hover:text-blue-900">
               <IoMdClose className="text-2xl" />
             </button>
 
@@ -210,7 +212,7 @@ const Chatbot: React.FC = () => {
                     }`}
                 >
                   <div
-                    className={`inline-block p-2 rounded-lg max-w-[80%] whitespace-pre-wrap text-sm ${msg.role === "user"
+                    className={`inline-block p-2 rounded-lg max-w-[80%] whitespace-pre-wrap text-sm border-amber-400 ${msg.role === "user"
                       ? "bg-blue-100 text-right"
                       : "bg-gray-100 text-left"
                       }`}
@@ -227,14 +229,14 @@ const Chatbot: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
-              className="flex-1 border rounded px-3 py-2 text-sm focus:outline-none text-black"
-              placeholder="Ask something..."
+              className="flex-1 border rounded-xl px-3 py-2 text-sm focus:outline-none text-black"
+              placeholder="Ask anything..."
             />
             <button
               onClick={handleSend}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-sm"
+              className="bg-blue-800 text-white px-4 py-2 rounded-full hover:bg-blue-600 text-sm"
             >
-              Send
+              <IoMdArrowUp/>
             </button>
           </div>
         </div>
